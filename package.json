@@ -1,0 +1,10 @@
+{
+  "name": "ac-cd",
+  "version": "1.0.0",
+  "description": "Assesment Center, Development Center by nowe kompetencje",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-less": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.0"
+  }
+}

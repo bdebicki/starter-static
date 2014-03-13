@@ -1,0 +1,60 @@
+/* CORE: reset styles */ 
+
+
+* {
+	margin: 0;
+	padding: 0;
+	.boxSizing();
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+	padding: 0;
+	border: 0;
+}
+img,
+fieldset {
+	border: none;
+}
+a,
+object,
+input:focus,
+textarea:focus,
+button:focus {
+	outline: none !important;
+}
+li {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+	font-weight: bold;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"] {
+	cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+	cursor: default;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary, video, img, object, iframe {
+	display: block;
+}
