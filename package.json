@@ -1,7 +1,7 @@
 {
-  "name": "ac-cd",
+  "name": "starter project",
   "version": "1.0.0",
-  "description": "Assesment Center, Development Center by nowe kompetencje",
+  "description": "codebase",
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-less": "^0.10.0",
