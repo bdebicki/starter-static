@@ -1,7 +1,10 @@
 {
-  "name": "starter project",
+  "name": "starter",
   "version": "1.0.0",
   "description": "codebase",
   "dependencies": {
+    "gulp": "~3.8.7",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-less": "~1.3.3"
   }
 }
