@@ -102,7 +102,6 @@ a {
 	color: #000000;
 	font-weight: bold;
 	text-decoration: none;
-	.transition(color);
 
 	&:hover {
 		color: @lightGray;
@@ -110,4 +109,7 @@ a {
 	}
 }
 
-.textSelection(@darkGray, #ffffff);
+::selection {
+	background: @darkGray;
+	color: @lightGray;
+}

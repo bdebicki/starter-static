@@ -1,127 +1,7 @@
 /* CORE: mixins set */
 
 
-/* text selections */
-.textSelection(@background, @color) {
-	::selection {
-		background: @background;
-		color: @color;
-	}
-	::-moz-selection {
-		background: @background;
-		color: @color;
-	}
-	::-webkit-selection {
-		background: @background;
-		color: @color;
-	}
-}
-
-
-/* sprite */
-.mainSpriteSvg(@positionLeft: 0, @positionRight: 0, @backgroundColor: transparent) {
-	background-color: @backgroundColor;
-	background-image: url('/@{templateUrl}/images/sprite.svg');
-	background-position: @positionLeft @positionRight;
-	background-size: 67px 12px;
-	background-repeat: no-repeat;
-}
-
-
-/* border radius */
-.borderRadius(@radius: 5px) {
-	border-radius: @radius;
-	background-clip: padding-box;
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-}
-
-
-/* box sizing */
-.boxSizing(@sizing: border-box) {
-	-moz-box-sizing: @sizing;
-	-webkit-box-sizing: @sizing;
-	box-sizing: @sizing;
-}
-
-
-/* rotate */
-.rotate(@rotate) {
-	-webkit-transform: rotate(@rotate);
-	-moz-transform: rotate(@rotate);
-	-ms-transform: rotate(@rotate);
-	-o-transform: rotate(@rotate);
-	transform: rotate(@rotate);
-}
-
-
-/* scale */
-.scale(@size) {
-	-webkit-transform: scale(@size);
-	-moz-transform: scale(@size);
-	transform: scale(@size);
-}
-
-
-/* translate */
-.translate(@positionX: 0, @positionY: 0) {
-	-webkit-transform: translate(@positionX, @positionY);
-	-moz-transform: translate(@positionX, @positionY);
-	-ms-transform: translate(@positionX, @positionY);
-	-o-transform: translate(@positionX, @positionY);
-	transform: translate(@positionX, @positionY);
-}
-.translate3d(@positionX: 0, @positionY: 0, @positionZ: 0) {
-	-webkit-transform: translate3d(@positionX, @positionY, @positionZ);
-	-moz-transform: translate3d(@positionX, @positionY, @positionZ);
-	-ms-transform: translate3d(@positionX, @positionY, @positionZ);
-	-o-transform: translate3d(@positionX, @positionY, @positionZ);
-	transform: translate3d(@positionX, @positionY, @positionZ);
-}
-
-
-/* transitions */
-.transition(@element: all, @time: 0.3s, @ease: ease-out, @delay: 0s) {
-	-webkit-transition: @element @time @ease @delay;
-	-moz-transition: @element @time @ease @delay;
-	-o-transition: @element @time @ease @delay;
-	transition: @element @time @ease @delay;
-}
-.transitionManual(@declaration) {
-	-webkit-transition: @declaration;
-	-moz-transition: @declaration;
-	-o-transition: @declaration;
-	transition: @declaration;
-}
-.transitionTransform(@declaration) {
-	-webkit-transition: -webkit-transform @declaration;
-	-moz-transition: -moz-transform @declaration;
-	transition: transform @declaration;
-}
-.transitionDelay(@delay: 0.3s) {
-	transition-delay: @delay;
-	-moz-transition-delay: @delay;
-	-webkit-transition-delay: @delay;
-	-o-transition-delay: @delay;
-}
-.transitionNone() {
-	-webkit-transition: none;
-	-moz-transition: none;
-	transition: none;
-}
-
-
-/* global show / hide animation */
-.visible-animate(@time: 0.3s, @delay: 0) {
-	opacity: 1;
-	visibility: visible;
-	.transition(@time: @time, @delay: @delay);
-}
-.hidden-animate(@time: 0.3s, @delay: 0) {
-	opacity: 0;
-	visibility: hidden;
-	.transition(@time: @time, @delay: @delay);
-}
+/* global show / hide */
 .visible() {
 	opacity: 1;
 	visibility: visible;
@@ -133,7 +13,7 @@
 
 
 /* box clearing stuff */
-.clearFix() {
+.clearFix-after() {
 	&:after {
 		display: block;
 		height: 0;
@@ -141,13 +21,4 @@
 		content: '.';
 		overflow: hidden;
 	}
-}
-
-
-/* backface */
-.backface(@visibility: hidden) {
-	-webkit-backface-visibility: @visibility;
-	-moz-backface-visibility: @visibility;
-	-ms-backface-visibility: @visibility;
-	backface-visibility: @visibility;
 }
