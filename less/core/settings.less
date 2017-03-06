@@ -9,7 +9,7 @@ html {
 body {
 	min-width: 320px;
 	height: 100%;
-	font-family: 'Roboto';
+	font-family: Arial, sans-serif;
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight;
 
@@ -21,7 +21,6 @@ body {
 
 h1 {
 	color: #000000;
-	font-family: 'STIXGeneral';
 	font-size: @bigFontSize;
 	font-style: italic;
 	font-weight: normal;
@@ -42,7 +41,6 @@ h1 {
 }
 h2 {
 	color: @lightGray;
-	font-family: 'Roboto';
 	font-size: 14px;
 	font-weight: normal;
 	letter-spacing: 10px;
@@ -58,20 +56,6 @@ h2 {
 		line-height: 16px;
 		letter-spacing: 8px;
 	}
-	&.bolder {
-		font-weight: bold;
-		letter-spacing: 17px;
-
-		@media screen and (max-width: 768px) and (min-width: 568px) {
-			letter-spacing: 13px;
-		}
-		@media screen and (max-width: 567px) and (min-width: 381px) {
-			letter-spacing: 9px;
-		}
-		@media screen and (max-width: 380px) {
-			letter-spacing: 7px;
-		}
-	}
 }
 
 p,
@@ -80,22 +64,26 @@ ol,
 address {
 	margin-bottom: @baseLineHeight;
 }
-p + ul,
-p + ol {
-	margin-top: -@baseLineHeight;
+p {
+	ul,
+    ol {
+		margin-top: -@baseLineHeight;
+	}
 }
 ol {
 	padding-left: 22px;
+
+	li {
+		list-style: decimal;
+	}
 }
-ol ol,
-ul ul,
-ol ul,
-ul ul,
-nav ul {
-	margin-bottom: 0;
-}
-ol li {
-	list-style: decimal;
+ol,
+ul,
+nav {
+	ol,
+	ul {
+		margin-bottom: 0;
+	}
 }
 
 a {
