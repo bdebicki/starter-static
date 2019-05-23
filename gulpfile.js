@@ -1,27 +1,31 @@
 // require gulp
-var gulp = require('gulp'),
-    less = require('gulp-less'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minify = require('gulp-minify-css')
+var gulp = require('gulp');
+var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
 
 // build css file task
-gulp.task('less', function() {
-    gulp.src('./less/application.less')
-        .pipe(less())
-        .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(gulp.dest('./css/'));
-});
+function build() {
+	return gulp.src('./src/less/application.less')
+		.pipe(less())
+		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
+		.pipe(gulp.dest('./public/css/'));
+}
 
 // build minified css file task
-gulp.task('less:minify', function() {
-    gulp.src('./less/application.less')
-        .pipe(less())
-        .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 10'] }))
-        .pipe(minify())
-        .pipe(gulp.dest('./css/'));
-});
+function buildClean() {
+	return gulp.src('./src/less/application.less')
+		.pipe(less())
+		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
+		.pipe(cleanCss())
+		.pipe(gulp.dest('./public/css/'));
+}
 
 // css watch task
-gulp.task('watch:less', function() {
-    gulp.watch('./less/**/*.less', ['less'])
-});
+function watch() {
+	return gulp.watch('./src/less/**/*.less', build)
+}
+
+exports.build = build;
+exports.buildClean = buildClean;
+exports.watch = watch;
