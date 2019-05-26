@@ -20,7 +20,7 @@ function clean() {
 function build() {
 	return gulp.src(`${config.srcFolder}${config.packageFile}`)
 		.pipe(less())
-		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
+		.pipe(autoprefixer())
 		.pipe(gulp.dest(config.destFolder));
 }
 
@@ -28,7 +28,7 @@ function build() {
 function buildClear() {
 	return gulp.src('./src/less/application.less')
 		.pipe(less())
-		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
+		.pipe(autoprefixer())
 		.pipe(cleanCss())
 		.pipe(gulp.dest(config.destFolder));
 }
