@@ -1,9 +1,10 @@
 // require gulp
 const { dest, pipe, series, src, watch } = require('gulp');
-const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const del = require('del');
+const less = require('gulp-less');
+const sourcemaps = require('gulp-sourcemaps');
 
 const config = {
 	destFolder: './public/css/',
@@ -16,16 +17,8 @@ function clean() {
 	return del(config.destFolder);
 }
 
-// build css file task
-function build() {
-	return src(`${config.srcFolder}${config.packageFile}`)
-		.pipe(less())
-		.pipe(autoprefixer())
-		.pipe(dest(config.destFolder));
-}
-
 // build minified css file task
-function buildClean() {
+function build() {
 	return src('./src/less/application.less')
 		.pipe(less())
 		.pipe(autoprefixer())
@@ -33,12 +26,22 @@ function buildClean() {
 		.pipe(dest(config.destFolder));
 }
 
+// build development css file task
+function buildDev() {
+	return src(`${config.srcFolder}${config.packageFile}`)
+		.pipe(sourcemaps.init())
+		.pipe(less())
+		.pipe(autoprefixer())
+		.pipe(sourcemaps.write())
+		.pipe(dest(config.destFolder));
+}
+
 // css watch task
 function watchFiles() {
-	return watch(`${config.srcFolder}**/*.less`, build);
+	return watch(`${config.srcFolder}**/*.less`, buildDev);
 }
 
 exports.default = build;
-exports.build = build;
-exports.buildClean = series(clean, buildClean);
+exports.buildDev = buildDev;
+exports.build = series(clean, build);
 exports.watch = watchFiles;
