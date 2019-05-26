@@ -5,17 +5,23 @@ var autoprefixer = require('gulp-autoprefixer');
 var cleanCss = require('gulp-clean-css');
 var del = require('del');
 
+var config = {
+	destFolder: './public/css/',
+	packageFile: 'application.less',
+	srcFolder: './src/less/',
+};
+
 // clean builded files
 function clean() {
-	return del('./public/css/');
+	return del(config.destFolder);
 }
 
 // build css file task
 function build() {
-	return gulp.src('./src/less/application.less')
+	return gulp.src(`${config.srcFolder}${config.packageFile}`)
 		.pipe(less())
 		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
-		.pipe(gulp.dest('./public/css/'));
+		.pipe(gulp.dest(config.destFolder));
 }
 
 // build minified css file task
@@ -24,12 +30,12 @@ function buildClear() {
 		.pipe(less())
 		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
 		.pipe(cleanCss())
-		.pipe(gulp.dest('./public/css/'));
+		.pipe(gulp.dest(config.destFolder));
 }
 
 // css watch task
 function watch() {
-	return gulp.watch('./src/less/**/*.less', build);
+	return gulp.watch(`${config.srcFolder}**/*.less`, build);
 }
 
 exports.build = build;
