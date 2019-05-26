@@ -3,6 +3,12 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCss = require('gulp-clean-css');
+var del = require('del');
+
+// clean builded files
+function clean() {
+	return del('./public/css/');
+}
 
 // build css file task
 function build() {
@@ -13,7 +19,7 @@ function build() {
 }
 
 // build minified css file task
-function buildClean() {
+function buildClear() {
 	return gulp.src('./src/less/application.less')
 		.pipe(less())
 		.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie >= 11'] }))
@@ -23,9 +29,10 @@ function buildClean() {
 
 // css watch task
 function watch() {
-	return gulp.watch('./src/less/**/*.less', build)
+	return gulp.watch('./src/less/**/*.less', build);
 }
 
 exports.build = build;
-exports.buildClean = buildClean;
+exports.buildClear = gulp.series(clean, buildClear);
 exports.watch = watch;
+exports.default = build;
