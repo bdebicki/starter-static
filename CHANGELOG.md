@@ -2,6 +2,7 @@
 
 ## 2.0.0:
 - update gulp to 4.0.2
+- update other packages to newest versions
 - added `package-lock.json`
 - rewrite all gulp tasks
 - use [browserslist](https://github.com/browserslist/browserslist)
