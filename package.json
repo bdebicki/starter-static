@@ -1,12 +1,12 @@
 {
-  "name": "starter",
+  "name": "starter static",
   "version": "2.0.0",
   "author": "Bartosz Dębicki",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bdebicki/starter"
+    "url": "git://github.com/bdebicki/starter-static"
   },
-  "description": "projects starter",
+  "description": "static projects starter",
   "devDependencies": {
     "browserslist": "^4.6.0",
     "del": "^4.1.1",
